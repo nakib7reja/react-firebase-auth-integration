@@ -3,8 +3,23 @@ import { Link } from 'react-router';
 import { AuthContext } from '../contexts/AuthContext/AuthContext';
 
 const Login = () => {
-    const authInfo = use(AuthContext)
-    console.log(authInfo)
+    const { signInUser } = use(AuthContext)
+    // console.log(authInfo)
+
+    const handleLogin = (e) => {
+        e.preventDefault()
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+
+        signInUser(email, password)
+            .then(result => {
+                console.log('from signInUser function:', result.user)
+                // e.target.reset()
+            })
+            .catch(error => {
+                console.log('from signInUser function error:', error)
+            })
+    }
 
 
     return (
@@ -12,7 +27,7 @@ const Login = () => {
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                 <div className="card-body">
                     <h1 className="text-4xl font-bold">Login now!</h1>
-                    <form onSubmit=''>
+                    <form onSubmit={handleLogin}>
                         <fieldset className="fieldset">
 
                             {/* Email field */}

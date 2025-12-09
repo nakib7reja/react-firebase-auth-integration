@@ -5,22 +5,22 @@ import { Link } from 'react-router';
 import { AuthContext } from '../contexts/AuthContext/AuthContext';
 
 const Register = () => {
-    const {createUser} = use(AuthContext)
+    const { createUser } = use(AuthContext)
 
-    const handleRegister =(e)=>{
+    const handleRegister = (e) => {
         e.preventDefault();
-        const email= e.target.email.value;
+        const email = e.target.email.value;
         const password = e.target.password.value;
-        
+
         createUser(email, password)
-        .then(result=>{
-            console.log(result.user)
-        })
-        .catch(error=>{
-            console.log(error)
-        })
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
-    
+
     // const handleRegister = (e) => {
     //     e.preventDefault();
     //     const email = e.target.email.value;

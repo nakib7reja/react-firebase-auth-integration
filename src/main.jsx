@@ -9,6 +9,7 @@ import Root from './Layout/Root.jsx'
 import Login from './components/Login/Login.jsx'
 import Register from './components/Register/Register.jsx'
 import AuthProvider from './components/contexts/AuthContext/AuthProvider.jsx'
+import Order from './components/Order/Order.jsx'
 
 // const AuthContext = createContext(null)
 // const userInfo = {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path: '/order',
+        Component: Order
       }
     ]
   }
